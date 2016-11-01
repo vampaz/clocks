@@ -7,6 +7,11 @@
 
     });
 
+    window.addEventListener("optimizedResize", function() {
+        init();
+    });
+
+
     function init() {
         var clockSrc = document.getElementById('clock').innerText;
         var wrapper = document.querySelector('.wrapper');
@@ -42,5 +47,23 @@
 
         return count.x * count.y;
     }
+
+    var throttle = function(type, name, obj) {
+        obj = obj || window;
+        var running = false;
+        var func = function() {
+            if (running) { return; }
+            running = true;
+            requestAnimationFrame(function() {
+                obj.dispatchEvent(new CustomEvent(name));
+                running = false;
+            });
+        };
+        obj.addEventListener(type, func);
+    };
+
+    /* init - you can init any event */
+    throttle("resize", "optimizedResize");
+
 
 }(window));
