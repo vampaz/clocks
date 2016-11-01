@@ -30,13 +30,13 @@
         var dims = {
             w: document.documentElement.clientWidth,
             h: document.documentElement.clientHeight
-        }
+        };
 
         var size = 60;
         var count = {
             x: Math.floor(dims.w / size),
             y: Math.floor(dims.h / size)
-        }
+        };
 
         document.styleSheets[0].insertRule(".clock-wrapper { width: " + size + "px; height: " + size + "px }", 1);
 
