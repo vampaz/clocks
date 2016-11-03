@@ -33,6 +33,11 @@ iframe {
     justify-content: space-around;
 }
 
+
+
+
+
+
 .clock-wrapper {
     padding: .3vmin;
     box-sizing: border-box;
@@ -48,7 +53,7 @@ iframe {
     stroke-width: .5;
     stroke: #000000;
     fill: #ffffff;
-    animation: circle 2s ease-in infinite alternate;
+    /*animation: circle 2s ease-in infinite alternate;*/
 }
 
 .clock-face-center {
