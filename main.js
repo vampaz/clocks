@@ -1,9 +1,9 @@
 (function (window) {
     'use strict';
 
-    var clockSize = 60;
-    var clockSrc;
-    var wrapper;
+    const clockSize = 60;
+    let clockSrc;
+    let wrapper;
 
     window.addEventListener("DOMContentLoaded", function (ev) {
         init();
@@ -18,36 +18,33 @@
     }
 
     function makeClocks(template, el, n) {
-        var clocksHtml = '';
-        for (var i = n; i >= 1; i--) {
+        let clocksHtml = '';
+        for (let i = n; i >= 1; i--) {
             clocksHtml += template;
         }
         el.innerHTML = clocksHtml;
     }
 
     function getGrid(size) {
-        var docDims = {
+        let docDims = {
             w: document.documentElement.clientWidth,
             h: document.documentElement.clientHeight
         };
 
-        var gridDims = size || 60;
+        let gridDims = size || 60;
 
-        var count = Math.floor(docDims.w / gridDims) * Math.floor(docDims.h / gridDims);
-        console.log(count);
-        return count;
+        return Math.floor(docDims.w / gridDims) * Math.floor(docDims.h / gridDims);
     }
 
-    var throttle = function (type, name, obj) {
+    let throttle = function (type, name, obj) {
         obj = obj || window;
-        var running = false;
-        var func = function () {
+        let running = false;
+        let func = function () {
             if (running) {
                 return;
             }
             running = true;
-            requestAnimationFrame(function (time) {
-                console.log(time)
+            requestAnimationFrame(function () {
                 obj.dispatchEvent(new CustomEvent(name));
                 running = false;
             });
